@@ -1,4 +1,7 @@
 FROM openjdk:8-jre-alpine
-WORKDIR /var/instacart-checker
-ADD target/instacart-checker-1.0-SNAPSHOT.jar /var/instacart-checker/instacart-checker-1.0-SNAPSHOT.jar
-ENTRYPOINT ["java", "-jar", "", "server"]
+ADD . /instacart-checker
+WORKDIR /instacart-checker
+RUN mvn clean install
+COPY --from=0 "/instacart-checker/target/instacart-checker-1.0-SNAPSHOT.jar" instacart-checker.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "instacart-checker.jar", "server"]
