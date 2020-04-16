@@ -41,7 +41,7 @@ public class InstacartCheckerResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/checkAndNotify")
     public Response checkForAvailability(
-            @HeaderParam("Cookie") String cookie,
+            @HeaderParam("X-Cookie") String cookie,
             AvailabilityRequest request) {
         Validate.notNull(request, "Must submit valid payload");
         LOG.info("Accepted request with store {} and phoneNumber {}", request.getStore(), request.getPhoneNumber());
