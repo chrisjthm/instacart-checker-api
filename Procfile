@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Ddw.http.port=$PORT -Ddw.http.adminPort=$PORT -jar target/instacart-checker-1.0-SNAPSHOT.jar -Ddw.server.applicationConnectors[0].port=$PORT server
+web: java $JAVA_OPTS -Ddw.server.applicationConnectors[0].port=$PORT -jar target/instacart-checker-1.0-SNAPSHOT.jar server
