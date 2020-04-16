@@ -15,6 +15,6 @@ To see your applications health enter url `http://localhost:8081/healthcheck`
 Deploy
 ---
 heroku login
-heroku git:remote -a instacart-checker-api
+heroku create
 git push heroku master
 heroku ps:scale web=1
